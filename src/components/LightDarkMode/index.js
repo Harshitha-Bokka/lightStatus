@@ -1,10 +1,11 @@
 // Write your code here
 
-import Component from 'react'
+import {Component} from 'react'
 
 import './index.css'
 
 class LightDarkMode extends Component {
+
   state = {lightStatus: 'on'}
 
   toggleMode = () => {
@@ -14,7 +15,8 @@ class LightDarkMode extends Component {
   }
 
   setup = () => {
-    if (this.state.lightStatus === 'on') {
+      const {lightStatus}=this.state;
+    if (lightStatus === 'on') {
       return (
         <div className="card1">
           <h1 className="head1">Click To Change Mode</h1>
@@ -22,8 +24,8 @@ class LightDarkMode extends Component {
             Dark Mode
           </button>
         </div>
-      )
-    } else {
+      );
+    }
       return (
         <div className="card2">
           <h1 className="head2">Click To Change Mode</h1>
@@ -31,14 +33,13 @@ class LightDarkMode extends Component {
             Light Mode
           </button>
         </div>
-      )
-    }
+      );
+      }
   }
 
-  render() {
-    const {lightStatus} = this.state
-    return <div className="container">{this.setup()}</div>
+  render(){
+    return <div className="container">{this.setup()}</div>;
   }
+
 }
-
 export default LightDarkMode
